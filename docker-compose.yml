@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  suricata:
+    build: ./Dockerfile/
+    container_name: suricata
+    cap_add:
+      - NET_ADMIN
+    network_mode: "host"
+    volumes:
+      - /var/log/suricata:/var/log/suricata
+    command: suricata -c /et/suricata/suricata.yaml -q 0
