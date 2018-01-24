@@ -2,7 +2,7 @@
 
 Run the version 4.0.3 of Suricata with Docker and Docker Compose.
 
-Suricata is an Open Source IDS, IPS and NSM app.
+Suricata is an Open Source IDS, IPS and NSM engine.
 For more information about it, follow this link --> [HERE!!](https://suricata-ids.org/)
 
 This a ready-to-use version of Suricata.
@@ -49,6 +49,12 @@ if Suricata is running on a gateway, add this line:
 
 ```console
 iptables -I FORWARD -j NFQUEUE
+```
+
+**Warning:** if you have to stop Suricata. Delete this iptables rules before stopping Suricata as above: (replace the star by the right word)
+
+```console
+iptables -D * -j NFQUEUE
 ```
 
 ### Verify if it's working
