@@ -1,6 +1,7 @@
 FROM centos:7
 ENV container docker
-RUN yum install -y epel-release 
+RUN yum install -y epel-release \
+    && yum update -y
 RUN yum install -y gcc libpcap-devel pcre-devel libyaml-devel file-devel \
   zlib-devel jansson-devel nss-devel libcap-ng-devel libnet-devel \
   libnetfilter_queue-devel lua-devel wget tar make
@@ -11,7 +12,12 @@ RUN cd /tmp/suricata-4.0.3/ \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --enable-nfqueue --enable-lua 
 RUN cd /tmp/suricata-4.0.3/ \
     && make \
-    && make install-full \
+    && make install-full\
     && ldconfig
-RUN rm -f /tmp/suricata-4.0.3.tar.gz \
-    && rm -Rf /tmp/suricata-4.0.3/
+RUN rm -Rf /etc/suricata/rules
+RUN yum install -y python-pip python-yaml
+RUN pip install --pre --upgrade suricata-update
+RUN yum install -y cronie
+COPY suricata-update.sh /etc/suricata/suricata-update.sh
+COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
+RUN chmod +x /tmp/docker-entrypoint.sh
