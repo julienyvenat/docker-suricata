@@ -6,8 +6,6 @@ Suricata is an Open Source IDS, IPS and NSM engine.
 For more information about it, follow this link --> [HERE!!](https://suricata-ids.org/)
 
 This is a ready-to-use version of Suricata.
-The default configuration is set.
-Any changement has been perform
 
 ## Requirements
 
@@ -70,6 +68,32 @@ If Suricata instance is operating correctly, you should  see the following line 
 ```console
 [**] [1:2008983:6] ET USER_AGENTS Suspicious User Agent (BlackSun) [**] [Classification: A Network Trojan was detected] [Priority: 1] {TCP}
 ```
+## About
+
+### Docker
+
+This Docker is build from centos 7 official docker. 
+
+The container shares the network of the host. 
+
+### Suricata
+
+1. Configuration:
+
+ The basic configuration of suricata has been changed a little bit.
+
+ Now the rules inside the container are inside the folder /var/lib/suricata/rules
+
+ This rules will be update every 12 hours thanks to the new feature [suricata-update](http://suricata-update.readthedocs.io/en/latest/index.html)
+
+ Moreover, the netfilter mode is set to **repeat**. This mode is used to reinject all packets inside iptables. This permit to not bypassing some other iptables rules.
+
+2. Logs:
+
+ Fast, drop and stats logs are enabled. They're inside the /var/log/suricata folder. 
+
+ All other logs types are disabled.  
+
 
 ## Addons
 
