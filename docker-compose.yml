@@ -4,10 +4,11 @@ services:
 
   suricata:
     build: ./Dockerfile/
-    container_name: suricata
+    container_name: suricataTest
     cap_add:
       - NET_ADMIN
     network_mode: "host"
     volumes:
       - /var/log/suricata:/var/log/suricata
-    command: suricata -c /etc/suricata/suricata.yaml -q 0
+      - ./config/suricata.yaml:/etc/suricata/suricata.yaml
+    entrypoint: /tmp/docker-entrypoint.sh
