@@ -4,7 +4,7 @@ services:
 
   suricata:
     build: ./Dockerfile/
-    container_name: suricataTest
+    container_name: suricata
     cap_add:
       - NET_ADMIN
     network_mode: "host"
