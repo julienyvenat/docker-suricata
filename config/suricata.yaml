@@ -52,6 +52,7 @@ vars:
 default-rule-path: /var/lib/suricata/rules
 rule-files:
   - suricata.rules
+  - my.rules
 
 classification-file: /etc/suricata/classification.config
 reference-config-file: /etc/suricata/reference.config
