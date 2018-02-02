@@ -94,6 +94,18 @@ The container shares the network of the host.
 
  All other logs types are disabled.  
 
+3. Rules:
+ 
+ You can add your own rules in the "my.rules" file.
+
+ To reload the suricata rules you can use the **reload.sh** script. Or you can launch a bach inside the docker and execute the appropriate command.
+
+```console
+docker exec -it suricata /bin/bash
+suricatasc -c reload-rules
+```
+
+An example rule is set. The message "TEST ping google" will be log inside fast.log if you ping 8.8.8.8 (Google DNS).
 
 ## Addons
 
