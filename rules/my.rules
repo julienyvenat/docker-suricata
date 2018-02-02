@@ -1,0 +1,1 @@
+alert icmp $HOME_NET any -> 8.8.8.8 any (msg:"TEST ping google"; classtype:not-suspicious; sid:1; rev:1;)
