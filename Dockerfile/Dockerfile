@@ -21,3 +21,6 @@ RUN yum install -y cronie
 COPY suricata-update.sh /etc/suricata/suricata-update.sh
 COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
 RUN chmod +x /tmp/docker-entrypoint.sh
+RUN yum install -y cronie
+ADD suricata-update-cron /etc/cron.d/suricata-update-cron
+RUN chmod +x /etc/cron.d/suricata-update-cron
