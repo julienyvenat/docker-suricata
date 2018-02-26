@@ -49,7 +49,7 @@ if Suricata is running on a gateway, add this line:
 iptables -I FORWARD -j NFQUEUE
 ```
 
-**Warning:** if you have to stop Suricata. Delete this iptables rules before stopping Suricata: (replace the star by the right word)
+**Warning:** if you have to stop Suricata. Delete this iptables rules before stopping Suricata: (replace the asterisk by the right word)
 
 ```console
 iptables -D * -j NFQUEUE
@@ -84,7 +84,7 @@ The container shares the network of the host.
 
  Now the rules inside the container are inside the folder /var/lib/suricata/rules
 
- This rules will be update every 12 hours thanks to the new feature [suricata-update](http://suricata-update.readthedocs.io/en/latest/index.html)
+ This rules will be update every 6 hours thanks to the new feature [suricata-update](http://suricata-update.readthedocs.io/en/latest/index.html)
 
  Moreover, the netfilter mode is set to **repeat**. This mode is used to reinject all packets inside iptables. This permit to not bypassing some other iptables rules.
 
