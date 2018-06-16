@@ -10,6 +10,5 @@ services:
     network_mode: "host"
     volumes:
       - /var/log/suricata:/var/log/suricata
-      - ./config/suricata.yaml:/etc/suricata/suricata.yaml
       - ./rules/my.rules:/var/lib/suricata/rules/my.rules
     entrypoint: /tmp/docker-entrypoint.sh

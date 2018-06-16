@@ -1,26 +1,31 @@
 FROM centos:7
-ENV container docker
+#ENV container docker
+## Install Suricata as describe here https://redmine.openinfosecfoundation.org/projects/suricata/wiki/CentOS_Installation
 RUN yum install -y epel-release \
     && yum update -y
 RUN yum install -y gcc libpcap-devel pcre-devel libyaml-devel file-devel \
-  zlib-devel jansson-devel nss-devel libcap-ng-devel libnet-devel \
-  libnetfilter_queue-devel lua-devel wget tar make
+    zlib-devel jansson-devel nss-devel libcap-ng-devel libnet-devel \
+    libnetfilter_queue-devel lua-devel wget tar make
 RUN cd /tmp/ \
-    && wget https://www.openinfosecfoundation.org/download/suricata-4.0.3.tar.gz \
-    && tar -xvzf /tmp/suricata-4.0.3.tar.gz 
-RUN cd /tmp/suricata-4.0.3/ \
+    && wget https://www.openinfosecfoundation.org/download/suricata-4.0.4.tar.gz \
+    && tar -xvzf /tmp/suricata-4.0.4.tar.gz 
+RUN cd /tmp/suricata-4.0.4/ \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --enable-nfqueue --enable-lua 
-RUN cd /tmp/suricata-4.0.3/ \
+RUN cd /tmp/suricata-4.0.4/ \
     && make \
     && make install-full\
     && ldconfig
-RUN rm -Rf /etc/suricata/rules
+# Install Suricata-update utility https://github.com/OISF/suricata-update
 RUN yum install -y python-pip python-yaml
 RUN pip install --pre --upgrade suricata-update
 RUN yum install -y cronie
 COPY suricata-update.sh /etc/suricata/suricata-update.sh
+# COPY file needed for the Suricata efficiency
+RUN yum install -y cronie
+COPY suricata-update-cron /etc/cron.d/suricata-update-cron
+RUN chmod +x /etc/cron.d/suricata-update-cron
 COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
 RUN chmod +x /tmp/docker-entrypoint.sh
-RUN yum install -y cronie
-ADD suricata-update-cron /etc/cron.d/suricata-update-cron
-RUN chmod +x /etc/cron.d/suricata-update-cron
+COPY suricata.yaml /etc/suricata/suricata.yaml
+
+
