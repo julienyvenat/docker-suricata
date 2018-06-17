@@ -13,7 +13,6 @@ This is a ready-to-use version of Suricata.
 
 1. Install [Docker](https://www.docker.com/community-edition#/download) version **17.12.0+**
 2. Install [Docker Compose](https://docs.docker.com/compose/install/) version **1.6.0+**
-3. Clone this repository
 
 
 ## Usage 
