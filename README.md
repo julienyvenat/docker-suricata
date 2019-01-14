@@ -1,6 +1,6 @@
 # Docker Suricata
 
-Run the version 4.0.4 of Suricata with Docker and Docker Compose.
+Run the version 4.1.2 of Suricata with Docker and Docker Compose.
 
 Suricata is an Open Source IDS, IPS and NSM engine.
 For more information about it, follow this link --> [HERE!!](https://suricata-ids.org/)
