@@ -7,11 +7,11 @@ RUN yum install -y gcc libpcap-devel pcre-devel libyaml-devel file-devel \
     zlib-devel jansson-devel nss-devel libcap-ng-devel libnet-devel \
     libnetfilter_queue-devel lua-devel wget tar make
 RUN cd /tmp/ \
-    && wget https://www.openinfosecfoundation.org/download/suricata-4.0.4.tar.gz \
-    && tar -xvzf /tmp/suricata-4.0.4.tar.gz 
-RUN cd /tmp/suricata-4.0.4/ \
+    && wget https://www.openinfosecfoundation.org/download/suricata-4.1.2.tar.gz \
+    && tar -xvzf /tmp/suricata-4.1.2.tar.gz 
+RUN cd /tmp/suricata-4.1.2/ \
     && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --enable-nfqueue --enable-lua 
-RUN cd /tmp/suricata-4.0.4/ \
+RUN cd /tmp/suricata-4.1.2/ \
     && make \
     && make install-full\
     && ldconfig
