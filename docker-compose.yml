@@ -3,7 +3,7 @@ version: '2'
 services:
 
   suricata:
-    build: ./Dockerfile/
+    build: ./${OS_SURICATA}/Dockerfile/
     container_name: suricata
     cap_add:
       - NET_ADMIN

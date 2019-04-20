@@ -1,6 +1,8 @@
 # Docker Suricata
 
-Run the version 4.1.2 of Suricata with Docker and Docker Compose.
+~~For **centos7** : Run the version 4.1.3 of Suricata with Docker and Docker Compose.~~ Some bugs during the installation must be corrected. For now only the alpine version is up.
+
+For **alpine** : Run the version 4.0.4 of Suricata with Docker and Docker Compose.
 
 Suricata is an Open Source IDS, IPS and NSM engine.
 For more information about it, follow this link --> [HERE!!](https://suricata-ids.org/)
@@ -18,6 +20,15 @@ This is a ready-to-use version of Suricata.
 ## Usage 
 
 ### Initial setup
+
+Now you can launch from ~~centos7~~ or alpine. By default, OS_SURICATA is set to **alpine** inside the .env file.
+
+To choose, you have to set the OS_SURICATA environment variable or change the value inside the .env file.
+
+Available values:
+ - alpine
+ - ~~centos7~~
+
 
 First: Start Suricata using docker-compose : (you have to be inside the repository to perform)
 
