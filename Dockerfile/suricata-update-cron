@@ -1,3 +1,0 @@
-0 */6 * * * /etc/suricata/suricata-update.sh > /dev/null 2>&1
-# Blank line necessary
-
