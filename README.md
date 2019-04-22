@@ -1,11 +1,11 @@
 # Docker Suricata
 
-~~For **centos7** : Run the version 4.1.3 of Suricata with Docker and Docker Compose.~~ Some bugs during the installation must be corrected. For now only the alpine version is up.
-
-For **alpine** : Run the version 4.0.4 of Suricata with Docker and Docker Compose.
-
 Suricata is an Open Source IDS, IPS and NSM engine.
-For more information about it, follow this link --> [HERE!!](https://suricata-ids.org/)
+
+For more information about it, go on their [website](https://suricata-ids.org/)
+or consult the official [documentation](https://suricata-ids.org/docs/) for technical information.
+
+- For **alpine** : Run the version 4.0.4 of Suricata with Docker and Docker Compose.
 
 This is a ready-to-use version of Suricata.
 
@@ -21,13 +21,12 @@ This is a ready-to-use version of Suricata.
 
 ### Initial setup
 
-Now you can launch from ~~centos7~~ or alpine. By default, OS_SURICATA is set to **alpine** inside the .env file.
+Now you can launch from alpine. By default, OS_SURICATA is set to **alpine** inside the .env file.
 
 To choose, you have to set the OS_SURICATA environment variable or change the value inside the .env file.
 
 Available values:
  - alpine
- - ~~centos7~~
 
 
 First: Start Suricata using docker-compose : (you have to be inside the repository to perform)
@@ -82,7 +81,7 @@ If Suricata instance is operating correctly, you should  see the following line 
 
 ### Docker
 
-This Docker is build from centos 7 official docker. 
+This Docker is build from alpine official docker. 
 
 The container shares the network of the host. 
 
@@ -117,9 +116,14 @@ suricatasc -c reload-rules
 
 An example rule is set. The message "TEST ping google" will be log inside fast.log if you ping 8.8.8.8 (Google DNS).
 
-## Addons
+## Contributing
 
-You can modify the code as you wish. 
-For Suricata question please refer to the official documentation --> [HERE!!](https://suricata-ids.org/docs/)
+If you want to contribute, please do. We use pretty much the usual classical way to handle contributions, please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
-Thank you !!
+## Roadmap
+
+A [roadmap](./ROADMAP.md) is available for future features.
+
+## Licence
+
+This repository is licenced under MIT.
