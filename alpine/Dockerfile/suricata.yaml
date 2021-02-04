@@ -363,13 +363,6 @@ outputs:
       #level: Info ## possible levels: Emergency, Alert, Critical,
                    ## Error, Warning, Notice, Info, Debug
 
-  # a line based information for dropped packets in IPS mode
-  - drop:
-      enabled: yes
-      filename: drop.log
-      append: yes
-      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
-
   # output module to store extracted files to disk
   #
   # The files are stored to the log-dir in a format "file.<id>" where <id> is
