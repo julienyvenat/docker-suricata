@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.18.3
 #ENV container docker
 ## Install Suricata as describe here https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Distributions_Containing_Suricata Repository : https://pkgs.alpinelinux.org/package/edge/community/x86/suricata
 RUN apk add suricata --no-cache
